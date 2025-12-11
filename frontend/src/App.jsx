@@ -4,9 +4,8 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
 
 const sizes = [
   { label: 'Square (1024x1024)', value: '1024x1024' },
-  { label: 'Landscape (1536x1024)', value: '1536x1024' },
-  { label: 'Portrait (1024x1536)', value: '1024x1536' },
-  { label: 'Auto', value: 'auto' },
+  { label: 'Landscape (1792x1024)', value: '1792x1024' },
+  { label: 'Portrait (1024x1792)', value: '1024x1792' },
 ]
 
 async function dataUrlToFile(dataUrl, filename) {

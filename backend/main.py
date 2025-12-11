@@ -7,6 +7,8 @@ from backend.utils import create_image, edit_image
 
 app = FastAPI(title="Image Generation and Editing API")
 
+ALLOWED_SIZES = {"1024x1024", "1792x1024", "1024x1792"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -33,6 +35,13 @@ async def generate_image(payload: dict):
 
     if not prompt:
         raise HTTPException(status_code=400, detail="Prompt is required to generate an image")
+
+    if size not in ALLOWED_SIZES:
+        allowed = ", ".join(sorted(ALLOWED_SIZES))
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid size '{size}'. Please use one of: {allowed}.",
+        )
 
     try:
         image_bytes = create_image(prompt=prompt, size=size)

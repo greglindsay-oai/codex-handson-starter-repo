@@ -14,7 +14,8 @@ def create_image(prompt: str,
     
     Args:
         prompt (str): The text prompt to generate the image.
-        size (str): The size of the generated image. Defaults to "1024x1024". Can be "1536x1024", "1024x1536", or "auto"
+        size (str): The size of the generated image. Defaults to "1024x1024". Supported values are
+            "1024x1024", "1792x1024", or "1024x1792".
     
     Returns:
         image_bytes: The generated image in bytes.
